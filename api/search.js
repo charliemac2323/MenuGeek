@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://api.foursquare.com/v3/places/search?query=${encodeURIComponent(query)}&ll=${ll}&radius=${radius || 5000}&categories=13000&limit=15&fields=name,location,distance,rating,price`,
+      `https://api.foursquare.com/v3/places/search?query=${encodeURIComponent(query)}&ll=${ll}&radius=${radius || 10000}&limit=20&fields=name,location,distance,rating,price,categories`,
       { headers: { 'Authorization': FSQ_KEY, 'Accept': 'application/json' } }
     );
     const data = await response.json();
